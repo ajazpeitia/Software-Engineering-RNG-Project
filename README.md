@@ -70,5 +70,5 @@ Make sure the JAVA_HOME path correctly reflects the java jdk location from sudo 
  23. Head to the virtual machine instances, where you launched your machine. 
  24. Note your external IP
  25. To access Tomcat, type the address http://External_IP_ADDRESS:8080
- 26. If everything ran correclty, the welcome page for Tomcat should show up.
+ 26. If everything ran correctly, the welcome page for Tomcat should show up.
  27. To run the RNG project code, type in http://External_IP_ADDRESS:8080/Rng/giveme.
