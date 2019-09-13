@@ -53,3 +53,22 @@ Make sure the JAVA_HOME path correctly reflects the java jdk location from sudo 
 
 14. Run the command sudo systemctl daemon-reload to notify the system of our new file.
 15. Use the command sudo systemctl start tomcat to start Tomcat.
+16. Use the command sudo systemctl enable tomcat to start Tomcat whenever virtual machine is launched.
+17. Open the host and host-manager context files by using sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml and sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml.
+18. Comment out the line show below
+ <!--<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />-->
+19. To allow connections to Tomcat, we need to configure the virtual machines firewall.
+20. Go to Google Clouds Console and click VPC Network -> Firewall rules.
+21. Click create firewall rules with the following settings:
+ Name: tomcat
+ Targets: All instance in the network
+ Source Filter: IP Ranges
+ Source IP ranges: 0.0.0.0/0
+ Protocols and Ports: Check tcp and enter 8080
+ 22. Hit create.
+ 23. Head to the virtual machine instances, where you launched your machine. 
+ 24. Note your external IP
+ 25. To access Tomcat, type the address http://External_IP_ADDRESS:8080
+ 26. If everything ran correclty, the welcome page for Tomcat should show up.
+ 27. To run the RNG project code, type in http://External_IP_ADDRESS:8080/Rng/giveme.
